@@ -1,0 +1,339 @@
+c Technically, [K_SLASH] should be in the above list, but I'm choosing not to add it to avoid confusion.
+c + [T_UPPER] > layer('default')
+c is 0308 the right diaeresis?
+store(&VERSION) '14.0'
+store(&NAME) 'ewondo'
+store(&TARGETS) 'any'
+store(&BITMAP) 'Cameroon.ico'
+store(&VISUALKEYBOARD) 'ewondo.kvks'
+store(&LAYOUTFILE) 'ewondo.keyman-touch-layout'
+store(&COPYRIGHT) 'Copyright © 2026 ewondo'
+store(&KEYBOARDVERSION) '1.0'
+store(&CasedKeys) [K_A] .. [K_Z] [K_0] .. [K_9] [K_HYPHEN] [K_EQUAL] [K_LBRKT] [K_RBRKT] [K_BKSLASH] [K_QUOTE] [K_COMMA] [K_PERIOD] [K_COLON]
+store(&KMW_EMBEDCSS) 'ewondo.css'
+store(&KMW_HELPTEXT) 'Use the Cameroon key to access special characters.'
+store(&MESSAGE) 'Use ! or AltGr to access special characters.'
+store(letter) 'aæαɛbɓcdɗeəfgʼꞌhiɨjklmnŋoɔøœpqrstuʉvwẅxyƴzAÆⱭƐBƁCDƊEƏFGꞋHIƗJKLMNŊOƆØŒPQRSTUɄVWẄXYƳZ◌'
+store(lc) 'aæαɛbɓcdɗeəfgʼꞌhiɨjklmnŋoɔøœpqrstuʉvwẅxyƴz◌'
+store(uc) 'AÆⱭƐBƁCDƊEƏFGʼꞋHIƗJKLMNŊOƆØŒPQRSTUɄVWẄXYƳZ◌'
+store(nfpunct) "',:;"
+store(num) '0123456789'
+store(dia) U+0300 U+0304 U+0301 U+030C U+0302 U+0303 U+0308 U+0327 U+030D U+0330
+
+begin Unicode > use(main)
+
+group(main) using keys
+store(word) " aæαɛbɓcdɗeəfgʼꞌhiɨjklmnŋoɔøœpqrstuʉvwẅxyƴzAÆⱭƐBƁCDƊEƏFGꞋHIƗJKLMNŊOƆØŒPQRSTUɄVWẄXYƳZ◌-'" U+0300 U+0304 U+0301 U+030C U+0302 U+0303 U+0308 U+0327 U+030D U+0330
+store(composed) 'àèìǹòùẁỳÀÈÌǸÒÙẀỲὰᾺáćéǵíḱĺḿńóṕŕśúẃýźÁĆÉǴÍḰĹḾŃÓṔŔŚÚẂÝŹǽάǿǼΆǾâĉêĝĥîĵôŝûŵŷẑÂĈÊĜĤÎĴÔŜÛŴŶẐāēḡīōūȳĀĒḠĪŌŪȲǣᾱǢᾹäëḧïöẗüẍÿÄËḦÏÖÜẌŸạḅḍẹḥịḳḷṃṇọṛṣṭụṿẉỵẓẠḄḌẸḤỊḲḶṂṆỌṚṢṬỤṾẈỴẒçḑȩģḩķļņŗşţÇḐȨĢḨĶĻŅŖŞŢḛḭṵḚḬṴãẽĩñõũṽỹÃẼĨÑÕŨṼỸḉḈậệộẬỆỘẫễỗẪỄỖṻṺḹṝḸṜﬀﬃﬄﬁﬂĲĳǇǈǉǊǋǌﬆﬅ'
+store(comp-dia) 'aeinouwyAEINOUWYαΑacegiklmnoprsuwyzACEGIKLMNOPRSUWYZæαøÆΑØaceghijosuwyzACEGHIJOSUWYZaegiouyAEGIOUYæαÆΑaehiotuxyAEHIOUXYabdehiklmnorstuvwyzABDEHIKLMNORSTUVWYZcdeghklnrstCDEGHKLNRSTeiuEIUaeinouvyAEINOUVYçÇạẹọẠẸỌâêôÂÊÔūŪḷṛḶṚfﬀﬀffIiLLlNNnsf'
+store(final) '!?.'
+store(diablock) " 0123456789?!;:'-_=<©®>.,[]{}\\/@°#$%^&*()«»‹›‘“’”€¥£èéçàùµ…†ʼꞌꞋ" U+0022 "|"
+platform('touch') any(word) any(final) + [K_SPACE] > index(word, 2) index(final, 3) U+0020 layer('shift')
+platform('touch') any(word) U+0020 + [K_SPACE] > index(word, 2) U+002E U+0020 layer('shift')
+any(composed) + [K_BKSP] > index(comp-dia, 1)
++ [LCTRL K_SPACE] > U+00A0
++ [K_SPACE] > U+0020
++ [SHIFT K_SPACE] > U+0020
++ [RCTRL K_SPACE] > U+00A0
++ [K_0] > U+00E0
++ [RALT K_0] > U+0040
++ [SHIFT K_0] > U+0030
++ [SHIFT RALT K_0] > beep
++ [T_0030] > U+0030
++ [K_1] > U+0026
++ [RALT K_1] > U+00B9
++ [SHIFT K_1] > U+0031
++ [SHIFT RALT K_1] > U+2018
++ [T_0031] > U+0031
++ [K_2] > U+00E9
++ [RALT K_2] > dk(007e)
++ [SHIFT K_2] > U+0032
++ [SHIFT RALT K_2] > U+2019
++ [T_0032] > U+0032
++ [K_3] > U+0022
++ [RALT K_3] > U+0025
++ [SHIFT K_3] > U+0033
++ [SHIFT RALT K_3] > U+00AB
++ [T_0033] > U+0033
++ [K_4] > U+0027
++ [RALT K_4] > U+007B
++ [SHIFT K_4] > U+0034
++ [SHIFT RALT K_4] > U+00BB
++ [T_0034] > U+0034
++ [K_5] > U+0028
++ [RALT K_5] > U+005B
++ [SHIFT K_5] > U+0035
++ [SHIFT RALT K_5] > U+0023
++ [T_0035] > U+0035
++ [K_6] > U+002D
++ [RALT K_6] > U+007C
++ [SHIFT K_6] > U+0036
++ [SHIFT RALT K_6] > U+0308
++ [T_0036] > U+0036
+any(diablock) + [SHIFT RALT K_6] > context
++ [K_7] > U+00E8
++ [RALT K_7] > dk(0060)
++ [SHIFT K_7] > U+0037
++ [SHIFT RALT K_7] > beep
++ [T_0037] > U+0037
++ [K_8] > U+005F
++ [RALT K_8] > U+005C
++ [SHIFT K_8] > U+0038
++ [SHIFT RALT K_8] > U+20D6
++ [T_0038] > U+0038
++ [K_9] > U+00E7
++ [RALT K_9] > U+005E
++ [SHIFT K_9] > U+0039
++ [SHIFT RALT K_9] > beep
++ [T_0039] > U+0039
++ [K_Q] > U+0061
++ [RALT K_Q] > U+025B
++ [SHIFT K_Q] > U+0041
++ [SHIFT RALT K_Q] > U+0190
++ [K_B] > U+0062
++ [SHIFT K_B] > U+0042
++ [RALT K_B] > U+0253
++ [SHIFT RALT K_B] > U+0181
++ [K_C] > U+0063
++ [RALT K_C] > U+0327
++ [SHIFT K_C] > U+0043
++ [SHIFT RALT K_C] > U+00A9
+any(diablock) + [RALT K_C] > context
++ [K_D] > U+0064
++ [SHIFT K_D] > U+0044
++ [RALT K_D] > U+0257
++ [SHIFT RALT K_D] > U+018A
++ [K_E] > U+0065
++ [SHIFT K_E] > U+0045
++ [RALT K_E] > U+0259
++ [SHIFT RALT K_E] > U+018F
++ [K_F] > U+0066
++ [SHIFT K_F] > U+0046
++ [SHIFT RALT K_F] > U+00C6
++ [RALT K_F] > U+00E6
++ [K_G] > U+0067
++ [SHIFT K_G] > U+0047
++ [RALT K_G] > U+02BC
++ [SHIFT RALT K_G] > U+A78B
++ [K_H] > U+0068
++ [SHIFT K_H] > U+0048
++ [RALT K_H] > U+03B1
++ [SHIFT RALT K_H] > U+2C6D
++ [K_I] > U+0069
++ [SHIFT K_I] > U+0049
++ [SHIFT RALT K_I] > U+0197
++ [RALT K_I] > U+0268
++ [K_J] > U+006A
++ [SHIFT K_J] > U+004A
++ [SHIFT RALT K_J] > U+2122
++ [RALT K_J] > U+2190
++ [K_K] > U+006B
++ [SHIFT K_K] > U+004B
++ [SHIFT RALT K_K] > U+2191
++ [RALT K_K] > U+2193
++ [K_L] > U+006C
++ [SHIFT K_L] > U+004C
++ [SHIFT RALT K_L] > U+00A3
++ [RALT K_L] > U+2192
++ [SHIFT K_COLON] > U+004D
++ [K_COLON] > U+006D
++ [RALT SHIFT K_COLON] > U+00B5
++ [RALT K_COLON] > U+00F9
++ [K_N] > U+006E
++ [SHIFT K_N] > U+004E
++ [RALT K_N] > U+014B
++ [SHIFT RALT K_N] > U+014A
++ [K_O] > U+006F
++ [SHIFT K_O] > U+004F
++ [RALT K_O] > U+0254
++ [SHIFT RALT K_O] > U+0186
++ [K_P] > U+0070
++ [SHIFT K_P] > U+0050
++ [SHIFT RALT K_P] > U+00D8
++ [RALT K_P] > U+00F8
++ [K_A] > U+0071
++ [SHIFT K_A] > U+0051
++ [RALT K_A] > U+2014
++ [SHIFT RALT K_A] > U+2013
++ [K_R] > U+0072
++ [SHIFT K_R] > U+0052
++ [SHIFT RALT K_R] > U+00AE
++ [RALT K_R] > U+25CC
++ [K_S] > U+0073
++ [SHIFT K_S] > U+0053
++ [RALT K_S] > U+201C
++ [SHIFT RALT K_S] > U+201D
++ [K_T] > U+0074
++ [SHIFT K_T] > U+0054
++ [RALT K_T] > U+0153
++ [SHIFT RALT K_T] > U+0152
++ [K_U] > U+0075
++ [SHIFT K_U] > U+0055
++ [RALT K_U] > U+0289
++ [SHIFT RALT K_U] > U+0244
++ [K_V] > U+0076
++ [SHIFT K_V] > U+0056
++ [RALT K_V] > U+A78C
++ [SHIFT RALT K_V] > U+A78B
++ [K_Z] > U+0077
++ [SHIFT K_Z] > U+0057
++ [RALT K_Z] > U+1E85
++ [SHIFT RALT K_Z] > U+1E84
++ [K_X] > U+0078
++ [SHIFT K_X] > U+0058
++ [SHIFT RALT K_X] > U+203A
++ [RALT K_X] > U+2039
++ [K_Y] > U+0079
++ [SHIFT K_Y] > U+0059
++ [RALT K_Y] > U+01B4
++ [SHIFT RALT K_Y] > U+01B3
++ [K_W] > U+007A
++ [SHIFT K_W] > U+005A
++ [RALT K_W] > U+2026
++ [SHIFT RALT K_W] > U+2020
++ [K_M] > U+002C
++ [RALT K_M] > beep
++ [SHIFT K_M] > U+003F
++ [SHIFT RALT K_M] > U+00D7
++ [T_002C] > U+002C
++ [T_003F] > U+003F
++ [K_EQUAL] > dk(003d)
++ [RALT K_EQUAL] > U+007D
++ [SHIFT K_EQUAL] > U+002B
++ [SHIFT RALT K_EQUAL] > U+00B1
++ [K_COMMA] > U+003B
++ [RALT K_COMMA] > dk(00b4)
++ [SHIFT K_COMMA] > U+002E
++ [SHIFT RALT K_COMMA] > dk(0060)
++ [T_002E] > U+002E
++ [T_003B] > U+003B
++ [K_HYPHEN] > U+0029
++ [SHIFT K_HYPHEN] > U+00B0
++ [RALT K_HYPHEN] > U+005D
++ [SHIFT RALT K_HYPHEN] > beep
++ [K_PERIOD] > U+003A
++ [RALT K_PERIOD] > U+0323
++ [SHIFT K_PERIOD] > U+002F
++ [SHIFT RALT K_PERIOD] > U+0308
+any(diablock) + [SHIFT RALT K_PERIOD] > context
++ [T_003A] > U+003A
+any(diablock) + [RALT K_PERIOD] > context
++ [NCAPS K_SLASH] > dk(0021)
++ [CAPS K_SLASH] > dk(0021)
++ [CAPS SHIFT K_SLASH] > U+00A7
++ [NCAPS SHIFT K_SLASH] > U+00A7
++ [T_0021] > U+0021
++ [NCAPS RALT K_SLASH] > U+0021
++ [NCAPS SHIFT RALT K_SLASH] > beep
++ [SHIFT K_BKQUOTE] > U+20AC
++ [K_BKQUOTE] > U+0024
++ [RALT K_BKQUOTE] > U+00B2
++ [SHIFT RALT K_BKQUOTE] > U+00B3
++ [K_LBRKT] > U+0301
++ [RALT K_LBRKT] > dk(005e)
++ [SHIFT K_LBRKT] > U+030C
++ [SHIFT RALT K_LBRKT] > dk(00a8)
+any(diablock) + [K_LBRKT] > context
+any(diablock) + [SHIFT K_LBRKT] > context
++ [K_BKSLASH] > U+1DC6
++ [RALT K_BKSLASH] > U+002A
++ [SHIFT K_BKSLASH] > U+1DC7
++ [SHIFT RALT K_BKSLASH] > U+00A4
+any(diablock) + [K_BKSLASH] > context
+any(diablock) + [SHIFT K_BKSLASH] > context
++ [K_RBRKT] > U+0330
++ [RALT K_RBRKT] > U+0304
++ [SHIFT K_RBRKT] > U+0303
++ [SHIFT RALT K_RBRKT] > U+030D
+any(diablock) + [K_RBRKT] > context
+any(diablock) + [RALT K_RBRKT] > context
+any(diablock) + [SHIFT K_RBRKT] > context
+any(diablock) + [SHIFT RALT K_RBRKT] > context
++ [K_QUOTE] > U+0300
++ [RALT K_QUOTE] > U+1DC5
++ [SHIFT K_QUOTE] > U+0302
++ [SHIFT RALT K_QUOTE] > U+1DC4
+any(diablock) + [K_QUOTE] > context
+any(diablock) + [RALT K_QUOTE] > context
+any(diablock) + [SHIFT K_QUOTE] > context
+any(diablock) + [SHIFT RALT K_QUOTE] > context
++ [K_OE2] > U+003C
++ [SHIFT K_OE2] > U+003E
++ [RALT K_OE2] > U+00AB
++ [SHIFT RALT K_OE2] > U+00BB
++ [T_CAM] > nul
++ [T_FCFA] > U+0046 U+0043 U+0046 U+0041
+c Handle Touch Diacritics (ignoring on non-letters)
+any(diablock) + [T_0300] > context
++ [T_0300] > U+0300
+any(diablock) + [T_0301] > context
++ [T_0301] > U+0301
+any(diablock) + [T_0302] > context
++ [T_0302] > U+0302
+any(diablock) + [T_0303] > context
++ [T_0303] > U+0303
+any(diablock) + [T_0304] > context
++ [T_0304] > U+0304
+any(diablock) + [T_0308] > context
++ [T_0308] > U+0308
+any(diablock) + [T_030C] > context
++ [T_030C] > U+030C
+any(diablock) + [T_030D] > context
+any(diablock) + [SHIFT T_030D] > context
++ [T_030D] > U+030D
++ [SHIFT T_030D] > U+030D
+any(diablock) + [T_0327] > context
++ [T_0327] > U+0327
+any(diablock) + [T_0330] > context
+any(diablock) + [SHIFT T_0330] > context
++ [T_0330] > U+0330
++ [SHIFT T_0330] > U+0330
+any(diablock) + [T_03B1] > context
++ [T_03B1] > U+03B1
+any(diablock) + [T_1DC4] > context
+any(diablock) + [SHIFT T_1DC4] > context
++ [T_1DC4] > U+1DC4
++ [SHIFT T_1DC4] > U+1DC4
+any(diablock) + [T_1DC5] > context
+any(diablock) + [SHIFT T_1DC5] > context
++ [T_1DC5] > U+1DC5
++ [SHIFT T_1DC5] > U+1DC5
+any(diablock) + [T_1DC6] > context
+any(diablock) + [SHIFT T_1DC6] > context
++ [T_1DC6] > U+1DC6
++ [SHIFT T_1DC6] > U+1DC6
+any(diablock) + [T_1DC7] > context
+any(diablock) + [SHIFT T_1DC7] > context
++ [T_1DC7] > U+1DC7
++ [SHIFT T_1DC7] > U+1DC7
+match > use(deadkeys)
+
+group(deadkeys)
+store(dkf007e) ' aAnNoO' dk(007e)
+store(dkt007e) '~ãÃñÑõÕ~'
+store(dkf003d) ' ' U+0300 U+0327 U+0303 U+0304 U+030D U+0302 U+0301 dk(003d)
+store(dkt003d) '=ˋ¸~ˉˈˆˊ='
+store(dkf00b4) ' E' dk(00b4)
+store(dkt00b4) '´É´'
+store(dkf0060) ' aAeEiIoOuU' dk(0060)
+store(dkt0060) '`àÀèÈìÌòÒùÙ`'
+store(dkf005e) ' aAeEiIoOuU' dk(005e)
+store(dkt005e) '^âÂêÊîÎôÔûÛ^'
+store(dkf00a8) ' aAeEiIoOuUy' dk(008a)
+store(dkt00a8) '¨äÄëËïÏöÖüÜÿ'
+store(dkf0021) " $&'()+-012568:<=>?ABCDEFGHIJLMNOPQRSTUVWXYZabcdefghimnopqrstuvwxyzà" U+0300 U+0301 U+0302 U+0303 U+0330 U+1DC7 U+1DC6 '€34"_°,' dk(003d) '/jkKl'
+store(dkt0021) '!²¹{[]±|' U+20D7 '‘’#' U+0308 U+20D6 U+0323 '«}»×ƐƁ©ƊƏÆꞋⱭƗ™£µŊƆØ–®”ŒɄꞋẄ›Ƴ†ɛɓ' U+0327 'ɗəæʼαɨùŋɔø—◌“œʉꞌẅ‹ƴ…@' U+1DC5 '^' U+1DC4 U+030D U+0304 '¤*³«»%\' beep beep '}' U+0308 '←↓↑→'
+dk(0021) U+002E > dk(0060)
+dk(0021) U+00E8 > dk(0060)
+dk(0021) U+003B > dk(00b4)
+dk(0021) U+00E7 > dk(005e)
+dk(0021) U+00E9 > dk(007e)
+dk(0021) U+030C > dk(00a8)
+dk(0021) dk(0021) > U+0021
+dk(007e) any(dkf007e) > index(dkt007e, 2)
+dk(003d) any(dkf003d) > index(dkt003d, 2)
+dk(00b4) any(dkf00b4) > index(dkt00b4, 2)
+dk(0060) any(dkf0060) > index(dkt0060, 2)
+dk(005e) any(dkf005e) > index(dkt005e, 2)
+dk(00a8) any(dkf00a8) > index(dkt00a8, 2)
+dk(0021) any(dkf0021) > index(dkt0021, 2)
