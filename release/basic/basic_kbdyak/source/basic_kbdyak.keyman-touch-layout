@@ -897,52 +897,52 @@
             "id": 1,
             "key": [
               {
-                "id": "T_0031",
+                "id": "U_0031",
                 "text": "1",
                 "nextlayer": "default"
               },
               {
-                "id": "T_0032",
+                "id": "U_0032",
                 "text": "2",
                 "nextlayer": "default"
               },
               {
-                "id": "T_0033",
+                "id": "U_0033",
                 "text": "3",
                 "nextlayer": "default"
               },
               {
-                "id": "T_0034",
+                "id": "U_0034",
                 "text": "4",
                 "nextlayer": "default"
               },
               {
-                "id": "T_0035",
+                "id": "U_0035",
                 "text": "5",
                 "nextlayer": "default"
               },
               {
-                "id": "T_0036",
+                "id": "U_0036",
                 "text": "6",
                 "nextlayer": "default"
               },
               {
-                "id": "T_0037",
+                "id": "U_0037",
                 "text": "7",
                 "nextlayer": "default"
               },
               {
-                "id": "T_0038",
+                "id": "U_0038",
                 "text": "8",
                 "nextlayer": "default"
               },
               {
-                "id": "T_0039",
+                "id": "U_0039",
                 "text": "9",
                 "nextlayer": "default"
               },
               {
-                "id": "T_0030",
+                "id": "U_0030",
                 "text": "0",
                 "nextlayer": "default"
               },
@@ -1080,19 +1080,19 @@
                 ]
               },
               {
-                "id": "T_003A",
+                "id": "U_003A",
                 "text": ":",
                 "layer": "default",
                 "nextlayer": "default"
               },
               {
-                "id": "T_003B",
+                "id": "U_003B",
                 "text": ";",
                 "layer": "default",
                 "nextlayer": "default"
               },
               {
-                "id": "T_0021",
+                "id": "U_0021",
                 "text": "!",
                 "nextlayer": "default",
                 "layer": "default",
@@ -1105,7 +1105,7 @@
                 ]
               },
               {
-                "id": "T_003F",
+                "id": "U_003F",
                 "text": "?",
                 "nextlayer": "default",
                 "layer": "default",
@@ -1189,7 +1189,7 @@
                 "nextlayer": "default"
               },
               {
-                "id": "T_002C",
+                "id": "U_002C",
                 "text": ",",
                 "layer": "default",
                 "nextlayer": "default"
@@ -1212,13 +1212,6 @@
               {
                 "id": "U_00A5",
                 "text": "¥",
-                "nextlayer": "default"
-              },
-              {
-                "id": "T_FCFA",
-                "text": "FCFA",
-                "width": 205,
-                "fontsize": ".6em",
                 "nextlayer": "default"
               }
             ]
@@ -1247,7 +1240,7 @@
                 "nextlayer": "default"
               },
               {
-                "id": "T_002E",
+                "id": "U_002E",
                 "text": ".",
                 "width": 150,
                 "layer": "default",
@@ -1438,18 +1431,18 @@
                 ]
               },
               {
-                "id": "T_003A",
+                "id": "U_003A",
                 "text": ":",
                 "layer": "default"
               },
               {
-                "id": "T_003B",
+                "id": "U_003B",
                 "text": ";",
                 "nextlayer": "caps",
                 "layer": "default"
               },
               {
-                "id": "T_0021",
+                "id": "U_0021",
                 "text": "!",
                 "nextlayer": "caps",
                 "layer": "default",
@@ -1461,7 +1454,7 @@
                 ]
               },
               {
-                "id": "T_003F",
+                "id": "U_003F",
                 "text": "?",
                 "nextlayer": "caps",
                 "sk": [
@@ -1540,7 +1533,7 @@
                 "nextlayer": "caps"
               },
               {
-                "id": "T_002C",
+                "id": "U_002C",
                 "text": ",",
                 "layer": "caps"
               },
@@ -1564,12 +1557,6 @@
               {
                 "id": "U_00A5",
                 "text": "¥"
-              },
-              {
-                "id": "T_FCFA",
-                "text": "FCFA",
-                "width": 150,
-                "fontsize": ".6em"
               }
             ]
           },
@@ -1595,7 +1582,7 @@
                 "layer": "default"
               },
               {
-                "id": "T_002E",
+                "id": "U_002E",
                 "text": ".",
                 "layer": "default"
               },
